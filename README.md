@@ -7,10 +7,10 @@
 - Bootstrap
 - Letter Opener
 - RSpec
+- FactoryBot
 
 ### TODO
 #### Testing
-- FactoryBot
 - Shoulda Helpers
 
 #### Asynchronous
