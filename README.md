@@ -8,6 +8,7 @@
 
 #### UI
 - Bootstrap
+- Stimulus
 
 #### Testing
 - RSpec
@@ -22,5 +23,4 @@
 
 ### TODO
 #### Client Side
-- Stimulus
 - FontAwesome

@@ -11,6 +11,38 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+      <div data-controller="sidebar">
+        <div class="border-right" id="sidebar-wrapper" data-target='sidebar.opened'>
+          <div class="sidebar-heading">EnergyMirror</div>
+          <div class="list-group list-group-flush">
+            <a href="#" class="list-group-item list-group-item-action">Dashboard</a>
+            <a href="#" class="list-group-item list-group-item-action">Shortcuts</a>
+            <a href="#" class="list-group-item list-group-item-action">Overview</a>
+            <a href="#" class="list-group-item list-group-item-action">Events</a>
+            <a href="#" class="list-group-item list-group-item-action">Profile</a>
+            <a href="#" class="list-group-item list-group-item-action">Status</a>
+
+            <a href="#" class="list-group-item list-group-item-action" data-action="click->sidebar#toggleCollapse">
+              Collapse
+            </a>
+          </div>
+        </div>
+
+        <div class="border-right d-none" data-target='sidebar.collapsed'>
+          <a href="#" class="list-group-item list-group-item-action" data-action="click->sidebar#toggleCollapse">
+            Expand
+          </a>
+        </div>
+      </div>
+
+      <div id='page-content-wrapper'>
+        <%= yield %>
+      </div>
+    </div>
+
+
   </body>
 </html>
