@@ -3,6 +3,7 @@
 ## Base Setup Checklist
 
 ### Done
+- Devise
 - Bootstrap
 
 ### TODO
