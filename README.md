@@ -5,6 +5,7 @@
 ### Done
 - Devise
 - Bootstrap
+- Letter Opener
 
 ### TODO
 #### Testing
@@ -13,9 +14,9 @@
 - Shoulda Helpers
 
 #### Asynchronous
-- Letter Opener
 - Sidekiq
 - Redis
+- Foreman
 
 #### Client Side
 - Stimulus
