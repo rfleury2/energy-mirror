@@ -1,24 +1,21 @@
-# README
+# Energy Mirror
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Base Setup Checklist
 
-Things you may want to cover:
+### Done
+- Bootstrap
 
-* Ruby version
+### TODO
+#### Testing
+- RSpec
+- FactoryBot
+- Shoulda Helpers
 
-* System dependencies
+#### Asynchronous
+- Letter Opener
+- Sidekiq
+- Redis
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### Client Side
+- Stimulus
+- FontAwesome
