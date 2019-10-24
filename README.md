@@ -6,10 +6,10 @@
 - Devise
 - Bootstrap
 - Letter Opener
+- RSpec
 
 ### TODO
 #### Testing
-- RSpec
 - FactoryBot
 - Shoulda Helpers
 
