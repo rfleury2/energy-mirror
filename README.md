@@ -9,6 +9,7 @@
 - RSpec
 - FactoryBot
 - Shoulda Helpers
+- Foreman
 
 ### TODO
 #### Testing
@@ -16,7 +17,6 @@
 #### Asynchronous
 - Sidekiq
 - Redis
-- Foreman
 
 #### Client Side
 - Stimulus
