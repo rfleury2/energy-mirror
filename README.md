@@ -8,10 +8,10 @@
 - Letter Opener
 - RSpec
 - FactoryBot
+- Shoulda Helpers
 
 ### TODO
 #### Testing
-- Shoulda Helpers
 
 #### Asynchronous
 - Sidekiq
