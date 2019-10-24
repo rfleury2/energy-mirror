@@ -2,22 +2,25 @@
 
 ## Base Setup Checklist
 
-### Done
+### Complete
+#### Authentication
 - Devise
+
+#### UI
 - Bootstrap
-- Letter Opener
+
+#### Testing
 - RSpec
 - FactoryBot
 - Shoulda Helpers
-- Foreman
-
-### TODO
-#### Testing
 
 #### Asynchronous
+- Foreman
 - Sidekiq
 - Redis
+- Letter Opener
 
+### TODO
 #### Client Side
 - Stimulus
 - FontAwesome
