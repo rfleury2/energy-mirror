@@ -84,10 +84,28 @@ body {
   color: $icon-gray;
 }
 
+.collapsed-toggle-link {
+  position: absolute;
+  bottom: 0;
+  width: 73px;
+}
+
 #collapsed-sidebar-wrapper {
   min-height: 100vh;
   -webkit-transition: margin .25s ease-out;
   -moz-transition: margin .25s ease-out;
   -o-transition: margin .25s ease-out;
   transition: margin .25s ease-out;
+}
+
+// AUTH / DEVISE
+
+.auth-container {
+  margin-top: 200px;
+  height: 100%
+}
+
+.auth-card {
+  margin: 0 auto;
+  max-width: 400px;
 }
