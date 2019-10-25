@@ -30,6 +30,10 @@ body {
   line-height: 19px;
 }
 
+.large-card-icon {
+  height: 300px
+}
+
 // TABLES
 
 .table-heading {
@@ -47,6 +51,30 @@ body {
   font-size: 14px;
   line-height: 19px;
 }
+
+.table-heading-index {
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: 0.01em;
+  color: $gray-800;
+}
+
+.table-cell-index {
+  font-size: 18px;
+  line-height: 36px;
+}
+
+.table-cell-pill {
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.pill {
+  color: $white !important;
+  font-weight: lightest !important;
+  background-color: $green !important;
+}
+
 
 // SIDEBAR
 
@@ -148,6 +176,7 @@ body {
 }
 
 // BUILDINGS
+
 .building-energy-star-summary {
   line-height: 165%;
   color: $text-gray;

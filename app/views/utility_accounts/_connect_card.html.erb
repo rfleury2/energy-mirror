@@ -1,0 +1,25 @@
+<div class="card w-100 mt-5 shadow border-0">
+  <div class="card-body text-center">
+    <h2 class='mb-4'>
+      <% if resource_type == 'electricity' %>
+        Electricity
+      <% elsif resource_type == 'natural_gas' %>
+        Natural gas
+      <% else %>
+        Add another account
+      <% end %>
+    </h2>
+
+    <div class='mb-5'>
+      <% if resource_type == 'natural_gas' %>
+        <%= image_tag 'utility_meter_icon', class: 'large-card-icon' %>
+      <% else %>
+        <%= image_tag 'electric_meter_icon', class: 'large-card-icon' %>
+      <% end %>
+    </div>
+
+    <div>
+      <%= link_to 'Connect', '#', class: 'btn btn-primary btn-lg mb-3' %>
+    </div>
+  </div>
+</div>

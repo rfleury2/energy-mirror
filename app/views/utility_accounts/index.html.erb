@@ -1,0 +1,54 @@
+<h1 class='main-title'>
+  <% if @utility_accounts.empty? %>
+    Connect your utility accounts
+  <% else %>
+    Utility accounts
+  <% end %>
+</h1>
+
+<div class="row mx-0">
+  <% if @utility_accounts.empty? %>
+    <div class="col-6">
+      <%= render partial: 'connect_card', locals: { resource_type: 'electricity' } %>
+    </div>
+
+    <div class="col-6">
+      <%= render partial: 'connect_card', locals: { resource_type: 'natural_gas' } %>
+    </div>
+  <% else %>
+    <div class="card w-100 mt-3 shadow border-0">
+      <div class="card-body">
+        <table class="table table-borderless table-hover">
+          <thead>
+            <tr class='border-primary'>
+              <th class='table-heading-index px-0 border-bottom border-secondary'>Status</th>
+              <th class='table-heading-index px-0 border-bottom border-secondary'>Account Email</th>
+              <th class='table-heading-index px-0 border-bottom border-secondary'>Utility</th>
+              <th class='table-heading-index px-0 border-bottom border-secondary'>Service Type</th>
+              <th class='table-heading-index px-0 border-bottom border-secondary'></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @utility_accounts.each do |utility_account| %>
+              <tr class='table-row'>
+                <td class='table-cell-index px-0 table-cell-pill' scope="row">
+                  <span class="badge badge-pill pill p-3">Active</span>
+                </td>
+                <td class='table-cell-index px-0'><%= utility_account.customer_email %></td>
+                <td class='table-cell-index px-0'><%= utility_account.utility_name %></td>
+                <td class='table-cell-index px-0'><%= utility_account.display_resource_type %></td>
+                <td class='table-cell-index px-0'>
+                  <%= link_to 'See meters', '#', class: 'btn btn-sm btn-secondary m-0' %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="col-6 p-0">
+      <%= render partial: 'connect_card', locals: { resource_type: 'neither' } %>
+    </div>
+  <% end %>
+</div>

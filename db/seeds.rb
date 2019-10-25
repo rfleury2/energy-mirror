@@ -7,3 +7,15 @@ Building.find_or_create_by!(
   state: 'IL',
   zip_code: 60647
 )
+
+UtilityAccount.find_or_create_by!(
+  customer_email: 'kwexler@hamlinmcgillre.com',
+  utility_name: 'ConEd',
+  resource_type: 'electricity'
+)
+
+UtilityAccount.find_or_create_by!(
+  customer_email: 'kwexler@hamlinmcgillre.com',
+  utility_name: 'National Grid',
+  resource_type: 'natural_gas'
+)
