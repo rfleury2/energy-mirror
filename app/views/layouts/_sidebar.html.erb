@@ -1,0 +1,82 @@
+<div data-controller="sidebar" class='sidebar-top-level'>
+  <div id="sidebar-wrapper" data-target='sidebar.opened'>
+    <div class="sidebar-heading">
+      EnergyMirror
+    </div>
+    <div class='mb-5'>
+      <div class='sidebar-organization-title'>
+        Hamlin McGill Real Estate
+      </div>
+      <div class='sidebar-user-name'>
+        Kimberly Wexler
+      </div>
+    </div>
+
+    <div class="list-group list-group-flush">
+      <a href="#" class="border-0 list-group-item list-group-item-action">
+        <%= image_tag 'dashboard_icon', class: 'sidebar-icon mr-2' %>
+        Dashboard
+      </a>
+
+      <%= link_to buildings_path, class: "border-0 list-group-item list-group-item-action" do %>
+        <%= image_tag 'building_icon', class: 'sidebar-icon mr-2' %>
+        Buildings
+      <% end %>
+      <a href="#" class="border-0 list-group-item list-group-item-action">
+        <%= image_tag 'electric_meter_icon', class: 'sidebar-icon mr-2' %>
+        Utility Accounts
+      </a>
+      <a href="#" class="border-0 list-group-item list-group-item-action">
+        <%= image_tag 'checkmark_icon', class: 'sidebar-icon mr-2' %>
+        Benchmarking
+      </a>
+      <a href="#" class="border-0 list-group-item list-group-item-action">
+        <%= image_tag 'reporting_icon', class: 'sidebar-icon mr-2' %>
+        Reporting
+      </a>
+      <a href="#" class="list-group-item list-group-item-action">
+        <%= image_tag 'user_icon', class: 'sidebar-icon mr-2' %>
+        Profile
+      </a>
+
+
+      <div class='session-links'>
+        <a href="#" class="border-0 list-group-item list-group-item-action toggle-sidebar-link" data-action="click->sidebar#toggleCollapse">
+          <%= image_tag 'toggle_sidebar_icon', class: 'sidebar-icon mr-2' %>
+          Toggle Sidebar
+        </a>
+        <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: "border-0 list-group-item list-group-item-action" %>
+      </div>
+    </div>
+  </div>
+
+  <div id='collapsed-sidebar-wrapper' class="d-none" data-target='sidebar.collapsed'>
+    <div class="sidebar-heading">
+      EM
+    </div>
+
+    <a href="#" class="border-0 list-group-item list-group-item-action text-center">
+      <%= image_tag 'dashboard_icon', class: 'sidebar-icon mr-2' %>
+    </a>
+    <a href="#" class="border-0 list-group-item list-group-item-action text-center">
+      <%= image_tag 'building_icon', class: 'sidebar-icon mr-2' %>
+    </a>
+    <a href="#" class="border-0 list-group-item list-group-item-action text-center">
+      <%= image_tag 'electric_meter_icon', class: 'sidebar-icon mr-2' %>
+    </a>
+    <a href="#" class="border-0 list-group-item list-group-item-action text-center">
+      <%= image_tag 'checkmark_icon', class: 'sidebar-icon mr-2' %>
+    </a>
+    <a href="#" class="border-0 list-group-item list-group-item-action text-center">
+      <%= image_tag 'reporting_icon', class: 'sidebar-icon mr-2' %>
+    </a>
+    <a href="#" class="border-0 list-group-item list-group-item-action text-center">
+      <%= image_tag 'reporting_icon', class: 'sidebar-icon mr-2' %>
+    </a>
+    <div class='collapsed-toggle-link'>
+      <a href="#" class="border-0 list-group-item list-group-item-action text-center" data-action="click->sidebar#toggleCollapse">
+        <%= image_tag 'toggle_sidebar_icon', class: 'sidebar-icon mr-2' %>
+      </a>
+    </div>
+  </div>
+</div>

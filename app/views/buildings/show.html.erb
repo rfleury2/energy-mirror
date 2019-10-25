@@ -1,0 +1,152 @@
+<h1 class='main-title'><%= @building.display_name %></h1>
+
+<div class='building-details-container'>
+</div>
+
+<div class="row mx-0">
+  <div class="card w-100 mt-4 shadow border-0">
+    <div class="card-body row">
+      <div class="col">
+        <div class='attribute-title mb-2'>
+          Address
+        </div>
+        <div class='attribute-value'>
+          <%= @building.address_line_1 %>
+        </div>
+      </div>
+      <div class="col">
+        <div class='attribute-title mb-2'>
+          City
+        </div>
+        <div class='attribute-value'>
+          <%= @building.city %>
+        </div>
+      </div>
+      <div class="col">
+        <div class='attribute-title mb-2'>
+          Property Type
+        </div>
+        <div class='attribute-value'>
+          <%= @building.primary_property_type %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mx-0 mt-2">
+  <div class="col-8 p-0">
+    <div class="card w-100 mt-4 shadow border-0">
+      <div class="card-body">
+        <h5>Energy cost</h5>
+        <hr>
+      </div>
+    </div>
+  </div>
+
+  <div class="col pr-0">
+    <div class="card w-100 mt-4 shadow border-0">
+      <div class="card-body">
+        <h5>ENERGY STAR benchmarking</h5>
+        <hr>
+        <div class='building-energy-star-summary'>
+          Connect with your Portfolio Manager account to automatically upload your buildings’ consumption every month.  If you don’t have an account, we will create one for you.
+        </div>
+        <div class='text-center px-4 mt-4'>
+          <div><%= link_to 'Connect', '#', class: 'btn btn-primary btn-lg mb-3' %></div>
+          <%= link_to "I don't have an account", '#', class: 'btn btn-tertiary' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mx-0 mt-2">
+  <div class="col p-0">
+    <div class="card w-100 mt-4 shadow border-0">
+      <div class="card-body">
+        <h5>Recent bills</h5>
+        <hr>
+
+        <table class="table table-borderless table-hover">
+          <thead>
+            <tr class='border-primary'>
+              <th class='table-heading px-0 border-bottom border-secondary'>Resource</th>
+              <th class='table-heading px-0 border-bottom border-secondary'>Service Dates</th>
+              <th class='table-heading px-0 border-bottom border-secondary'>Total Cost</th>
+              <th class='table-heading px-0 border-bottom border-secondary'>Consumption</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class='table-row'>
+              <td class='table-cell px-0' scope="row">Electricity - ConEd</td>
+              <td class='table-cell px-0'>09/30/19 - 10/30/19</td>
+              <td class='table-cell px-0'>$9,370</td>
+              <td class='table-cell px-0'>72,083 kWh</td>
+            </tr>
+            <tr class='table-row'>
+              <td class='table-cell px-0' scope="row">Natural Gas - National Grid</td>
+              <td class='table-cell px-0'>09/30/19 - 10/30/19</td>
+              <td class='table-cell px-0'>$425</td>
+              <td class='table-cell px-0'>374 therms</td>
+            </tr>
+            <tr class='table-row'>
+              <td class='table-cell px-0' scope="row">Electricity - ConEd</td>
+              <td class='table-cell px-0'>09/30/19 - 10/30/19</td>
+              <td class='table-cell px-0'>$9,370</td>
+              <td class='table-cell px-0'>72,083 kWh</td>
+            </tr>
+            <tr class='table-row'>
+              <td class='table-cell px-0' scope="row">Electricity - ConEd</td>
+              <td class='table-cell px-0'>09/30/19 - 10/30/19</td>
+              <td class='table-cell px-0'>$9,370</td>
+              <td class='table-cell px-0'>72,083 kWh</td>
+            </tr>
+            <tr class='table-row'>
+              <td class='table-cell px-0' scope="row">Electricity - ConEd</td>
+              <td class='table-cell px-0'>09/30/19 - 10/30/19</td>
+              <td class='table-cell px-0'>$9,370</td>
+              <td class='table-cell px-0'>72,083 kWh</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mx-0 mt-2">
+  <div class="col p-0">
+    <div class="card w-100 mt-4 shadow border-0">
+      <div class="card-body">
+        <h5>Linked meters</h5>
+        <hr>
+
+        <table class="table table-borderless table-hover">
+          <thead>
+            <tr class='border-primary'>
+              <th class='table-heading px-0 border-bottom border-secondary'>Service Address</th>
+              <th class='table-heading px-0 border-bottom border-secondary'>Meter #</th>
+              <th class='table-heading px-0 border-bottom border-secondary'>Utility</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class='table-row'>
+              <td class='table-cell px-0' scope="row">433 Baroness St, Suite 200</td>
+              <td class='table-cell px-0'>111.00222.333.002</td>
+              <td class='table-cell px-0'>ConEd</td>
+            </tr>
+            <tr class='table-row'>
+              <td class='table-cell px-0' scope="row">433 Baroness St, Suite 200</td>
+              <td class='table-cell px-0'>111.00222.333.002</td>
+              <td class='table-cell px-0'>ConEd</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class='table-container'>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

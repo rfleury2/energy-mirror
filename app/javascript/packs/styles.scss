@@ -9,12 +9,46 @@
 @import './_variables.scss';
 @import '~bootstrap/scss/bootstrap';
 
-// APP CLASSES
+// BASE
 
-// LAYOUT
 body {
   overflow-x: hidden;
 }
+
+.main-title {
+  font-size: 24px;
+  color: $black;
+}
+
+.attribute-title {
+  font-size: 14px;
+  line-height: 16px;
+  color: $text-gray;
+}
+
+.attribute-value {
+  line-height: 19px;
+}
+
+// TABLES
+
+.table-heading {
+  font-size: 13px;
+  line-height: 19px;
+  letter-spacing: 0.01em;
+  color: $gray-800;
+}
+
+.table-row {
+  min-height: 60px;
+}
+
+.table-cell {
+  font-size: 14px;
+  line-height: 19px;
+}
+
+// SIDEBAR
 
 #sidebar-wrapper {
   min-height: 100vh;
@@ -37,6 +71,7 @@ body {
 
 #page-content-wrapper {
   min-width: 100vw;
+  padding: 20px;
 }
 
 @media (min-width: 768px) {
@@ -45,6 +80,7 @@ body {
   }
 
   #page-content-wrapper {
+    padding: 40px;
     min-width: 0;
     width: 100%;
   }
@@ -98,7 +134,8 @@ body {
   transition: margin .25s ease-out;
 }
 
-// AUTH / DEVISE
+
+// AUTH / DEVISE LAYOUT
 
 .auth-container {
   margin-top: 200px;
@@ -109,3 +146,10 @@ body {
   margin: 0 auto;
   max-width: 400px;
 }
+
+// BUILDINGS
+.building-energy-star-summary {
+  line-height: 165%;
+  color: $text-gray;
+}
+
