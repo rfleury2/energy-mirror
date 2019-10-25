@@ -14,6 +14,7 @@
 - RSpec
 - FactoryBot
 - Shoulda Helpers
+- Faker
 
 #### Asynchronous
 - Foreman
