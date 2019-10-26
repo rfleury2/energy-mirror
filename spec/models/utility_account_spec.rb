@@ -19,7 +19,21 @@ RSpec.describe UtilityAccount, type: :model do
         expect(utility_account.save).to eq false
       end
     end
+
+    describe '#utility_data_provider_name' do
+      let(:utility_account) { build(:utility_account) }
+
+      it 'allows accepted provider name' do
+        expect(utility_account.save).to eq true
+      end
+
+      it 'rejects bad provider name' do
+        utility_account.utility_data_provider_name = 'something else'
+        expect(utility_account.save).to eq false
+      end
+    end
   end
+
 
   describe '#display_resource_type' do
     context 'electricity' do

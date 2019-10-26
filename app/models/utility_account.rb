@@ -3,12 +3,14 @@ class UtilityAccount < ApplicationRecord
     electricity
     natural_gas
   )
+  VALID_PROVIDER_NAMES = %w(utility_api)
 
   validates_presence_of :customer_email,
                         :utility_name,
                         :resource_type
 
   validates_inclusion_of :resource_type, in: VALID_RESOURCE_TYPES
+  validates_inclusion_of :utility_data_provider_name, in: VALID_PROVIDER_NAMES
 
   def display_resource_type
     case resource_type
