@@ -22,6 +22,9 @@
 - Redis
 - Letter Opener
 
+#### Miscellaneous
+- Interactors
+
 ### TODO
 #### Client Side
 - FontAwesome
