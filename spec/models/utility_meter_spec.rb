@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe UtilityMeter, type: :model do
   it { should belong_to(:utility_account) }
+  it { should belong_to(:building) }
 
   describe 'validations' do
     it { should validate_presence_of(:status) }

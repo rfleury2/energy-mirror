@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2019_10_26_213325) do
 
   create_table "utility_meters", force: :cascade do |t|
     t.bigint "utility_account_id"
+    t.bigint "building_id"
     t.string "utility_data_provider_name", default: "utility_api"
     t.string "utility_data_provider_id"
     t.string "status"
@@ -60,6 +61,7 @@ ActiveRecord::Schema.define(version: 2019_10_26_213325) do
     t.string "service_address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["building_id"], name: "index_utility_meters_on_building_id"
     t.index ["utility_account_id"], name: "index_utility_meters_on_utility_account_id"
   end
 

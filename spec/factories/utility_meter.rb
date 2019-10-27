@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :utility_meter do
     utility_account { build(:utility_account) }
+    building { build(:building) }
     utility_data_provider_name { 'utility_api' }
     utility_data_provider_id { '12345' }
     meter_number { '01231-001' }

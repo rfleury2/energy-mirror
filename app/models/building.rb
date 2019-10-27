@@ -1,4 +1,6 @@
 class Building < ApplicationRecord
+  has_many :utility_meters
+
   VALID_PROPERTY_TYPES = %w(
     Bank Branch
     Courthouse
