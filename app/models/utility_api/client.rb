@@ -25,8 +25,23 @@ module UtilityApi
       end
     end
 
-    def get_bills
+    def get_meters(authorization_id)
+      filtering_param = "&authorizations=#{authorization_id}"
+      url = BASE_URL + '/meters' + request_params + filtering_param
+      uri = URI(url)
+      result = Net::HTTP.get(uri)
+      meters_response = JSON.parse(result)
+      meters_response['meters'].map do |meter_hash|
+        base = meter_hash['base']
 
+        {
+          utility_data_provider_name: 'utility_api',
+          utility_data_provider_id: meter_hash['uid'],
+          meter_number: base['meter_numbers'].first,
+          service_address: base['service_address'],
+          status: meter_hash['status']
+        }
+      end
     end
 
     private

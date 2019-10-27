@@ -15,6 +15,7 @@
 - FactoryBot
 - Shoulda Helpers
 - Faker
+- Pry
 
 #### Asynchronous
 - Foreman
