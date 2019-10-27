@@ -8,4 +8,10 @@ class UtilityMeter < ApplicationRecord
   validates_presence_of :status,
                         :meter_number,
                         :service_address
+
+  delegate :utility_name, :display_resource_type, to: :utility_account
+
+  def active?
+    status == 'active'
+  end
 end

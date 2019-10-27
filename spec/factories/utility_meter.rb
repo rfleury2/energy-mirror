@@ -7,5 +7,13 @@ FactoryBot.define do
     meter_number { '01231-001' }
     service_address { Faker::Address.full_address }
     status { 'active' }
+
+    trait :inactive do
+      status { 'inactive' }
+    end
+
+    trait :no_building do
+      building { nil }
+    end
   end
 end

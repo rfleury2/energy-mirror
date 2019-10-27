@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Building, type: :model do
-  it { should_have_many(:utility_meters) }
+  it { should have_many(:utility_meters) }
 
   describe 'validations' do
     it { should validate_presence_of(:display_name) }

@@ -122,22 +122,29 @@
         <table class="table table-borderless table-hover">
           <thead>
             <tr class='border-primary'>
-              <th class='table-heading px-0 border-bottom border-secondary'>Service Address</th>
               <th class='table-heading px-0 border-bottom border-secondary'>Meter #</th>
+              <th class='table-heading px-0 border-bottom border-secondary'>Energy Type</th>
               <th class='table-heading px-0 border-bottom border-secondary'>Utility</th>
+              <th class='table-heading px-0 border-bottom border-secondary'>Service Address</th>
+              <th class='table-heading px-0 border-bottom border-secondary'>Status</th>
             </tr>
           </thead>
           <tbody>
-            <tr class='table-row'>
-              <td class='table-cell px-0' scope="row">433 Baroness St, Suite 200</td>
-              <td class='table-cell px-0'>111.00222.333.002</td>
-              <td class='table-cell px-0'>ConEd</td>
-            </tr>
-            <tr class='table-row'>
-              <td class='table-cell px-0' scope="row">433 Baroness St, Suite 200</td>
-              <td class='table-cell px-0'>111.00222.333.002</td>
-              <td class='table-cell px-0'>ConEd</td>
-            </tr>
+            <% @utility_meters.each do |utility_meter| %>
+              <tr class='table-row'>
+                <td class='table-cell px-0'><%= utility_meter.meter_number %></td>
+                <td class='table-cell px-0'><%= utility_meter.display_resource_type %></td>
+                <td class='table-cell px-0'><%= utility_meter.utility_name %></td>
+                <td class='table-cell px-0'><%= utility_meter.service_address %></td>
+                <td class='table-cell px-0'>
+                  <% if utility_meter.active? %>
+                    <span class="badge badge-primary">Active</span>
+                  <% else %>
+                    <span class="badge badge-warning">Inactive</span>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
         <div class='table-container'>
