@@ -1,0 +1,15 @@
+<h1 class='main-title'>Connect your account</h1>
+
+<div class="row mx-0">
+  <div class="card w-100 mt-4 shadow border-0">
+    <div class="card-body row text-right">
+      <div class="col">
+      <%=  %>
+        <iframe
+          src=<%= 'https://utilityapi.com/authorize/energy-mirror?state=' + current_user.id.to_s %>
+          class='utility-api-embed'>
+        </iframe>
+      </div>
+    </div>
+  </div>
+</div>

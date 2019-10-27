@@ -19,9 +19,14 @@ module UtilityApi
           utility_name: authorization_hash['utility'],
           resource_type: 'electricity',
           utility_data_provider_id: authorization_hash['uid'],
-          utility_data_provider_name: 'utility_api'
+          utility_data_provider_name: 'utility_api',
+          is_invalid: authorization_hash['status'] == "errored"
         }
       end
+    end
+
+    def get_bills
+
     end
 
     private
