@@ -1,6 +1,7 @@
 class UtilityMeter < ApplicationRecord
   belongs_to :utility_account
   belongs_to :building, required: false
+  has_many :utility_bills
 
   VALID_PROVIDER_NAMES = %w(utility_api)
 

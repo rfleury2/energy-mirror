@@ -9,11 +9,9 @@ module UtilityApi
     BASE_URL = 'https://utilityapi.com/api/v2'
 
     def get_authorizations
-      url = BASE_URL + '/authorizations' + request_params
-      uri = URI(url)
-      result = Net::HTTP.get(uri)
-      authorizations_response = JSON.parse(result)
-      authorizations_response['authorizations'].map do |authorization_hash|
+      url = BASE_URL + '/authorizations' + auth_param
+
+      execute_api_request(url)['authorizations'].map do |authorization_hash|
         {
           customer_email: authorization_hash['customer_email'],
           utility_name: authorization_hash['utility'],
@@ -25,13 +23,11 @@ module UtilityApi
       end
     end
 
-    def get_meters(authorization_id)
-      filtering_param = "&authorizations=#{authorization_id}"
-      url = BASE_URL + '/meters' + request_params + filtering_param
-      uri = URI(url)
-      result = Net::HTTP.get(uri)
-      meters_response = JSON.parse(result)
-      meters_response['meters'].map do |meter_hash|
+    def get_meters(authorization_uid)
+      filtering_param = "&authorizations=#{authorization_uid}"
+      url = BASE_URL + '/bills' + auth_param + filtering_param
+
+      execute_api_request(url)['meters'].map do |meter_hash|
         base = meter_hash['base']
 
         {
@@ -44,9 +40,35 @@ module UtilityApi
       end
     end
 
+    def get_bills(meter_uid)
+      filtering_param = "&meters=#{meter_uid}"
+      url = BASE_URL + '/bills' + auth_param + filtering_param
+
+      execute_api_request(url)['bills'].map do |bill_hash|
+        base_hash = bill_hash['base']
+
+        {
+          utility_data_provider_name: 'utility_api',
+          utility_data_provider_id: bill_hash['uid'],
+          end_date: Date.parse(base_hash['bill_end_date']),
+          start_date: Date.parse(base_hash['bill_start_date']),
+          statement_date: Date.parse(base_hash['bill_statement_date']),
+          total_cost: base_hash['bill_total_cost'],
+          total_unit: base_hash['bill_total_unit'],
+          total_volume: base_hash['bill_total_volume']
+        }
+      end
+    end
+
     private
 
-    def request_params
+    def execute_api_request(url)
+      uri = URI(url)
+      result = Net::HTTP.get(uri)
+      JSON.parse(result)
+    end
+
+    def auth_param
       "?access_token=#{@api_key}"
     end
   end

@@ -75,36 +75,14 @@
             </tr>
           </thead>
           <tbody>
-            <tr class='table-row'>
-              <td class='table-cell px-0' scope="row">Electricity - ConEd</td>
-              <td class='table-cell px-0'>09/30/19 - 10/30/19</td>
-              <td class='table-cell px-0'>$9,370</td>
-              <td class='table-cell px-0'>72,083 kWh</td>
-            </tr>
-            <tr class='table-row'>
-              <td class='table-cell px-0' scope="row">Natural Gas - National Grid</td>
-              <td class='table-cell px-0'>09/30/19 - 10/30/19</td>
-              <td class='table-cell px-0'>$425</td>
-              <td class='table-cell px-0'>374 therms</td>
-            </tr>
-            <tr class='table-row'>
-              <td class='table-cell px-0' scope="row">Electricity - ConEd</td>
-              <td class='table-cell px-0'>09/30/19 - 10/30/19</td>
-              <td class='table-cell px-0'>$9,370</td>
-              <td class='table-cell px-0'>72,083 kWh</td>
-            </tr>
-            <tr class='table-row'>
-              <td class='table-cell px-0' scope="row">Electricity - ConEd</td>
-              <td class='table-cell px-0'>09/30/19 - 10/30/19</td>
-              <td class='table-cell px-0'>$9,370</td>
-              <td class='table-cell px-0'>72,083 kWh</td>
-            </tr>
-            <tr class='table-row'>
-              <td class='table-cell px-0' scope="row">Electricity - ConEd</td>
-              <td class='table-cell px-0'>09/30/19 - 10/30/19</td>
-              <td class='table-cell px-0'>$9,370</td>
-              <td class='table-cell px-0'>72,083 kWh</td>
-            </tr>
+            <% @utility_bills.each do |utility_bill| %>
+              <tr class='table-row'>
+                <td class='table-cell px-0' scope="row"><%= utility_bill.display_utility_information %></td>
+                <td class='table-cell px-0'><%= utility_bill.display_service_dates %></td>
+                <td class='table-cell px-0'>$<%= utility_bill.total_cost %></td>
+                <td class='table-cell px-0'><%= utility_bill.total_volume %> kWh</td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
       </div>

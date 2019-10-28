@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_26_213325) do
+ActiveRecord::Schema.define(version: 2019_10_27_231749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,21 @@ ActiveRecord::Schema.define(version: 2019_10_26_213325) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "utility_data_provider_name", default: "utility_api"
     t.string "utility_data_provider_id"
+  end
+
+  create_table "utility_bills", force: :cascade do |t|
+    t.string "utility_data_provider_id"
+    t.string "utility_data_provider_name"
+    t.bigint "utility_meter_id"
+    t.date "end_date"
+    t.date "start_date"
+    t.date "statement_date"
+    t.decimal "total_cost"
+    t.decimal "total_volume"
+    t.string "consumption_unit"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["utility_meter_id"], name: "index_utility_bills_on_utility_meter_id"
   end
 
   create_table "utility_meters", force: :cascade do |t|
