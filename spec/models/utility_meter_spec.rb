@@ -26,6 +26,32 @@ RSpec.describe UtilityMeter, type: :model do
         end
       end
     end
+
+    describe 'utility_data_provider' do
+      context 'with utility_api' do
+        let(:utility_meter) { build(:utility_meter) }
+
+        it 'saves' do
+          expect(utility_meter.save).to eq true
+        end
+      end
+
+      context 'with manual' do
+        let(:utility_meter) { build(:utility_meter, :manual) }
+
+        it 'saves' do
+          expect(utility_meter.save).to eq true
+        end
+      end
+
+      context 'without an associated building' do
+        let(:utility_meter) { build(:utility_meter, utility_data_provider_name: 'something') }
+
+        it 'saves' do
+          expect(utility_meter.save).to eq false
+        end
+      end
+    end
   end
 
   describe '#active?' do

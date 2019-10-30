@@ -1,7 +1,6 @@
 class BuildingsController < ApplicationController
   def index
-    # TODO: Build index page
-    redirect_to building_path(Building.first)
+    @buildings = Building.all
   end
 
   def show
@@ -12,14 +11,14 @@ class BuildingsController < ApplicationController
 
   def chart_data
     @utility_meters = Building.find(params[:building_id]).utility_meters
-    @utility_bills = UtilityBill.where(utility_meter: @utility_meters).limit(12).preload(:utility_meter).reverse
+    @utility_bills = UtilityBill.where(utility_meter: @utility_meters).preload(:utility_meter)
     chart_data = [
       {
         type: "stackedArea",
         name: "Electricity Cost",
         showInLegend: true,
         xValueFormatString: "YYYY",
-        dataPoints: @utility_bills.map do |ub|
+        dataPoints: @utility_bills.electric.reverse.map do |ub|
           {
             x: "#{ub.end_date.year}/#{ub.end_date.month}",
             y: ub.total_cost
@@ -31,10 +30,10 @@ class BuildingsController < ApplicationController
         name: "Natural Gas Cost",
         showInLegend: true,
         xValueFormatString: "YYYY",
-        dataPoints: @utility_bills.map do |ub|
+        dataPoints: @utility_bills.natural_gas.reverse.map do |ub|
           {
             x: "#{ub.end_date.year}/#{ub.end_date.month}",
-            y: ub.total_cost * (Random.rand / 3)
+            y: ub.total_cost
           }
         end
       }

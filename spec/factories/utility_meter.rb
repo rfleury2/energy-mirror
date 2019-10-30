@@ -15,5 +15,9 @@ FactoryBot.define do
     trait :no_building do
       building { nil }
     end
+
+    trait :manual do
+      utility_data_provider_name { 'manual' }
+    end
   end
 end

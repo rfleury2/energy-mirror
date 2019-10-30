@@ -1,4 +1,11 @@
-<h1 class='main-title'><%= @building.display_name %></h1>
+<div class='row'>
+  <div class='col'>
+    <h1 class='main-title'><%= @building.display_name %></h1>
+  </div>
+  <div class='col text-right'>
+    <%= link_to 'Back to my buildings', buildings_path, class: 'btn btn-tertiary' %>
+  </div>
+</div>
 
 <div class="row mx-0">
   <div class="card w-100 mt-4 shadow border-0">
@@ -13,10 +20,10 @@
       </div>
       <div class="col">
         <div class='attribute-title mb-2'>
-          City
+          City / State
         </div>
         <div class='attribute-value'>
-          <%= @building.city %>
+          <%= @building.city %>, <%= @building.state %>
         </div>
       </div>
       <div class="col">
@@ -81,8 +88,8 @@
               <tr class='table-row'>
                 <td class='table-cell px-0' scope="row"><%= utility_bill.display_utility_information %></td>
                 <td class='table-cell px-0'><%= utility_bill.display_service_dates %></td>
-                <td class='table-cell px-0'>$<%= utility_bill.total_cost %></td>
-                <td class='table-cell px-0'><%= utility_bill.total_volume %> kWh</td>
+                <td class='table-cell px-0'>$<%= utility_bill.total_cost.round(2) %></td>
+                <td class='table-cell px-0'><%= utility_bill.total_volume.round(2) %> kWh</td>
               </tr>
             <% end %>
           </tbody>

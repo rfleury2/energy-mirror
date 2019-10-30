@@ -9,6 +9,10 @@ FactoryBot.define do
     total_cost { Faker::Number.between }
     total_volume { Faker::Number.between }
     consumption_unit { 'kwh' }
+
+    trait :manual do
+      utility_data_provider_name { 'manual' }
+    end
   end
 end
 

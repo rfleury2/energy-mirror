@@ -48,6 +48,7 @@ group :development do
 
   # Added Gems
   gem 'letter_opener_web'
+  gem 'solargraph'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

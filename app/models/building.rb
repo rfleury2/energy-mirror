@@ -1,25 +1,25 @@
 class Building < ApplicationRecord
   has_many :utility_meters
 
-  VALID_PROPERTY_TYPES = %w(
-    Bank Branch
-    Courthouse
-    Dormitory/Residence Hall
-    Financial Office
-    Data Center
-    K-12 School
-    Hospital
-    Hotel
-    Medical Office
-    Multifamily Housing
-    Office
-    Other
-    Retail Store
-    Senior Care Community
-    Supermarket/Grocery Store
-    Warehouse/Distribution Center
-    Worship Facility
-  )
+  VALID_PROPERTY_TYPES = [
+    'Bank Branch',
+    'Courthouse',
+    'Dormitory/Residence Hall',
+    'Financial Office',
+    'Data Center',
+    'K-12 School',
+    'Hospital',
+    'Hotel',
+    'Medical Office',
+    'Multifamily Housing',
+    'Office',
+    'Other',
+    'Retail Store',
+    'Senior Care Community',
+    'Supermarket/Grocery Store',
+    'Warehouse/Distribution Center',
+    'Worship Facility'
+  ]
 
   validates_presence_of :display_name,
                         :primary_property_type,

@@ -5,7 +5,10 @@ class UtilityAccount < ApplicationRecord
     electricity
     natural_gas
   )
-  VALID_PROVIDER_NAMES = %w(utility_api)
+  VALID_PROVIDER_NAMES = %w(
+    utility_api
+    manual
+  )
 
   validates_presence_of :customer_email,
                         :utility_name,

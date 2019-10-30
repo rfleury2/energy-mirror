@@ -3,7 +3,10 @@ class UtilityMeter < ApplicationRecord
   belongs_to :building, required: false
   has_many :utility_bills
 
-  VALID_PROVIDER_NAMES = %w(utility_api)
+  VALID_PROVIDER_NAMES = %w(
+    utility_api
+    manual
+  )
 
   validates_inclusion_of :utility_data_provider_name, in: VALID_PROVIDER_NAMES
   validates_presence_of :status,
