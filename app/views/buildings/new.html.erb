@@ -1,0 +1,117 @@
+<div class='row'>
+  <div class='col'>
+    <h1 class='main-title'>Add a building</h1>
+  </div>
+  <div class='col text-right'>
+    <%= link_to 'Back to my buildings', buildings_path, class: 'btn btn-tertiary' %>
+  </div>
+</div>
+
+<% if @manual %>
+  <div class="row mx-0">
+    <div class="card w-100 mt-5 shadow border-0">
+      <div class="card-body">
+        <% if @errors %>
+          <%= render partial: 'shared/error_alert', locals: { errors: @errors } %>
+        <% end %>
+
+
+        <div class='row mb-4'>
+          <div class='col'>
+            <h4 class='main-title'>Add a building manually</h4>
+          </div>
+          <div class='col text-right'>
+            <%= link_to 'Back', new_building_path, class: 'btn btn-tertiary' %>
+          </div>
+        </div>
+
+        <div class='row w-100 m-0'>
+          <%= form_for @building do |f| %>
+            <div class="form-group">
+              <label class='form-label mb-0'>Building Name <span class='required-asterisk'>*</span></label>
+              <%= text_field_tag :display_name, @building.display_name, class: 'form-control' %>
+            </div>
+
+            <div class="form-group mt-4">
+              <label class='form-label mb-0'>Address Line 1 <span class='required-asterisk'>*</span></label>
+              <%= text_field_tag :address_line_1, @building.address_line_1, class: 'form-control' %>
+            </div>
+
+            <div class="form-group mt-4">
+              <label class='form-label mb-0'>Address Line 2</label>
+              <%= text_field_tag :address_line_2, @building.address_line_2, class: 'form-control' %>
+            </div>
+
+            <div class="form-row">
+              <div class="col form-group mt-4">
+                <label class='form-label mb-0'>City  <span class='required-asterisk'>*</span></label>
+                <%= text_field_tag :city, @building.city, class: 'form-control' %>
+              </div>
+
+              <div class="col form-group mt-4">
+                <label class='form-label mb-0'>State <span class='required-asterisk'>*</span></label>
+                <%= select_tag :state, options_for_select([''] + Building::STATE_ABBREVIATIONS, @building.state), class: 'form-control' %>
+              </div>
+
+              <div class="col form-group mt-4">
+                <label class='form-label mb-0'>Zip Code</label>
+                <%= number_field_tag :zip_code, @building.zip_code, class: 'form-control' %>
+              </div>
+            </div>
+
+            <div class="form-group mt-4">
+              <label class='form-label mb-0'>Gross Square Feet <span class='required-asterisk'>*</span></label>
+              <%= number_field_tag :gross_square_feet, @building.gross_square_feet, class: 'form-control' %>
+            </div>
+
+            <div class="form-group mt-4">
+              <label class='form-label mb-0'>Building Type <span class='required-asterisk'>*</span></label>
+              <%= select_tag :primary_property_type, options_for_select([''] + Building::VALID_PROPERTY_TYPES, @building.primary_property_type), class: 'form-control' %>
+            </div>
+
+            <div class='mt-5 w-100'>
+              <%= f.submit 'Create building', class: 'btn btn-primary btn-lg float-right' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="row mx-0">
+    <div class="col-md-6 col-sm-12 pl-0">
+      <div class="card w-100 mt-5 shadow border-0">
+        <div class="card-body text-center">
+          <h4 class='mb-4'>
+            Import buildings from ENERGY STAR Portfolio Manager
+          </h4>
+
+          <div class='mb-5'>
+            <%= image_tag 'energy_star_icon', class: 'energy-star-card-icon' %>
+          </div>
+
+          <div>
+            <%= link_to 'Import with Energy Star', new_building_path(manual: true), class: 'btn btn-primary btn-lg mb-3' %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <div class="card w-100 mt-5 shadow border-0">
+        <div class="card-body text-center">
+          <h4 class='mb-4'>
+            Add building manually
+          </h4>
+
+          <div class='mb-5'>
+            <%= image_tag 'building_icon', class: 'large-card-icon' %>
+          </div>
+
+          <div>
+            <%= link_to 'Connect', new_building_path(manual: true), class: 'btn btn-primary btn-lg mb-3' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

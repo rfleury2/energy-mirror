@@ -30,3 +30,25 @@
     </div>
   </div>
 </div>
+
+<div class='row mx-0'>
+  <div class="col-md-6 col-sm-12 card w-100 mt-5 shadow border-0">
+    <div class="card-body text-center">
+      <h2 class='mb-4'>
+        <% if @buildings.empty? %>
+          Add your first building
+        <% else %>
+          Add another building
+        <% end %>
+      </h2>
+
+      <div class='mb-5'>
+        <%= image_tag 'building_icon', class: 'large-card-icon' %>
+      </div>
+
+      <div>
+        <%= link_to 'Add building', new_building_path, class: 'btn btn-primary btn-lg mb-3' %>
+      </div>
+    </div>
+  </div>
+</div>

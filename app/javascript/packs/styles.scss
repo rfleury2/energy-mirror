@@ -34,6 +34,27 @@ body {
   height: 300px
 }
 
+.energy-star-card-icon {
+  height: 270px
+}
+
+.form-control {
+  border: none;
+  border-bottom: 1px $text-gray solid;
+}
+
+.form-label {
+  color: $text-gray;
+}
+
+.form-control {
+  min-width: 300px;
+}
+
+.required-asterisk {
+  color: red;
+}
+
 // TABLES
 
 .table-heading {

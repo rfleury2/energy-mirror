@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'welcome#index'
 
-  resources :buildings, only: [:index, :show] do
+  resources :buildings, only: [:index, :show, :new, :create] do
     get 'chart_data'
   end
   resources :utility_accounts, only: [:index, :new]

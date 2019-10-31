@@ -1,4 +1,23 @@
 class BuildingsController < ApplicationController
+  def new
+    @building = Building.new
+    @manual = params[:manual]
+    @errors = params[:errors]
+  end
+
+  def create
+    create_building_ctx = CreateBuilding.call(
+      new_attributes: building_params.to_h
+    )
+    new_building = create_building_ctx.building
+
+    if create_building_ctx.failure?
+      redirect_to new_building_path(errors: new_building.errors.full_messages, manual: true)
+    else
+      redirect_to building_path(new_building)
+    end
+  end
+
   def index
     @buildings = Building.all
   end
@@ -45,5 +64,11 @@ class BuildingsController < ApplicationController
         render json: chart_data
       end
     end
+  end
+
+  private
+
+  def building_params
+    params.permit(:display_name, :primary_property_type, :gross_square_feet, :address_line_1, :address_line_2, :city, :state, :zip_code)
   end
 end
