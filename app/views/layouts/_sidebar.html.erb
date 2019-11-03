@@ -16,36 +16,36 @@
 
     <div class="list-group list-group-flush">
       <%= link_to root_path, class: "border-0 list-group-item list-group-item-action" do %>
-        <%= image_tag 'dashboard_icon', class: 'sidebar-icon mr-2' %>
+        <%= image_tag 'dashboard_icon.svg', class: 'sidebar-icon mr-2' %>
         Dashboard
       <% end %>
 
       <%= link_to buildings_path, class: "border-0 list-group-item list-group-item-action" do %>
-        <%= image_tag 'building_icon', class: 'sidebar-icon mr-2' %>
+        <%= image_tag 'building_icon.svg', class: 'sidebar-icon mr-2' %>
         Buildings
       <% end %>
 
       <%= link_to utility_accounts_path, class: "border-0 list-group-item list-group-item-action" do %>
-        <%= image_tag 'electric_meter_icon', class: 'sidebar-icon mr-2' %>
+        <%= image_tag 'electric_meter_icon.svg', class: 'sidebar-icon mr-2' %>
         Utility Accounts
       <% end %>
       <a href="#" class="disabled border-0 list-group-item list-group-item-action">
-        <%= image_tag 'checkmark_icon', class: 'sidebar-icon mr-2' %>
+        <%= image_tag 'checkmark_icon.svg', class: 'sidebar-icon mr-2' %>
         Benchmarking
       </a>
       <a href="#" class="disabled border-0 list-group-item list-group-item-action">
-        <%= image_tag 'reporting_icon', class: 'sidebar-icon mr-2' %>
+        <%= image_tag 'reporting_icon.svg', class: 'sidebar-icon mr-2' %>
         Reporting
       </a>
       <a href="#" class="list-group-item list-group-item-action">
-        <%= image_tag 'user_icon', class: 'sidebar-icon mr-2' %>
+        <%= image_tag 'user_icon.svg', class: 'sidebar-icon mr-2' %>
         Profile
       </a>
 
 
       <div class='session-links'>
         <a href="#" class="border-0 list-group-item list-group-item-action toggle-sidebar-link" data-action="click->sidebar#toggleCollapse">
-          <%= image_tag 'toggle_sidebar_icon', class: 'sidebar-icon mr-2' %>
+          <%= image_tag 'toggle_sidebar_icon.svg', class: 'sidebar-icon mr-2' %>
           Toggle Sidebar
         </a>
         <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: "border-0 list-group-item list-group-item-action" %>
@@ -59,26 +59,26 @@
     </div>
 
     <a href="#" class="border-0 list-group-item list-group-item-action text-center">
-      <%= image_tag 'dashboard_icon', class: 'sidebar-icon mr-2' %>
+      <%= image_tag 'dashboard_icon.svg', class: 'sidebar-icon mr-2' %>
     </a>
     <a href="#" class="border-0 list-group-item list-group-item-action text-center">
-      <%= image_tag 'building_icon', class: 'sidebar-icon mr-2' %>
+      <%= image_tag 'building_icon.svg', class: 'sidebar-icon mr-2' %>
     </a>
     <a href="#" class="border-0 list-group-item list-group-item-action text-center">
-      <%= image_tag 'electric_meter_icon', class: 'sidebar-icon mr-2' %>
+      <%= image_tag 'electric_meter_icon.svg', class: 'sidebar-icon mr-2' %>
     </a>
     <a href="#" class="border-0 list-group-item list-group-item-action text-center">
-      <%= image_tag 'checkmark_icon', class: 'sidebar-icon mr-2' %>
+      <%= image_tag 'checkmark_icon.svg', class: 'sidebar-icon mr-2' %>
     </a>
     <a href="#" class="border-0 list-group-item list-group-item-action text-center">
-      <%= image_tag 'reporting_icon', class: 'sidebar-icon mr-2' %>
+      <%= image_tag 'reporting_icon.svg', class: 'sidebar-icon mr-2' %>
     </a>
     <a href="#" class="border-0 list-group-item list-group-item-action text-center">
-      <%= image_tag 'reporting_icon', class: 'sidebar-icon mr-2' %>
+      <%= image_tag 'reporting_icon.svg', class: 'sidebar-icon mr-2' %>
     </a>
     <div class='collapsed-toggle-link'>
       <a href="#" class="border-0 list-group-item list-group-item-action text-center" data-action="click->sidebar#toggleCollapse">
-        <%= image_tag 'toggle_sidebar_icon', class: 'sidebar-icon mr-2' %>
+        <%= image_tag 'toggle_sidebar_icon.svg', class: 'sidebar-icon mr-2' %>
       </a>
     </div>
   </div>
