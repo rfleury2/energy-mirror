@@ -56,11 +56,11 @@
         <h5>ENERGY STAR benchmarking</h5>
         <hr>
         <div class='building-energy-star-summary'>
-          Connect with your Portfolio Manager account to automatically upload your buildings’ consumption every month.  If you don’t have an account, we will create one for you.
+          Soon you will be able to connect with your Portfolio Manager account to automatically upload your buildings’ consumption every month.  If you don’t have an account, we will create one for you.
         </div>
         <div class='text-center px-4 mt-4'>
-          <div><%= link_to 'Connect', '#', class: 'btn btn-primary btn-lg mb-3' %></div>
-          <%= link_to "I don't have an account", '#', class: 'btn btn-tertiary' %>
+          <div><%= link_to 'Connect', '#', class: 'btn btn-primary btn-lg mb-3 disabled' %></div>
+          <% link_to "I don't have an account", '#', class: 'btn btn-tertiary' %>
         </div>
       </div>
     </div>
@@ -141,3 +141,24 @@
   </div>
 </div>
 
+
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body">
+        Body
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

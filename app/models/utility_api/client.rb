@@ -10,8 +10,10 @@ module UtilityApi
 
     def get_authorizations
       url = BASE_URL + '/authorizations' + auth_param
+      response = execute_api_request(url)
 
-      execute_api_request(url)['authorizations'].map do |authorization_hash|
+      return [] unless response['authorizations']
+      response['authorizations'].map do |authorization_hash|
         {
           customer_email: authorization_hash['customer_email'],
           utility_name: authorization_hash['utility'],
@@ -26,8 +28,10 @@ module UtilityApi
     def get_meters(authorization_uid)
       filtering_param = "&authorizations=#{authorization_uid}"
       url = BASE_URL + '/bills' + auth_param + filtering_param
+      response = execute_api_request(url)
 
-      execute_api_request(url)['meters'].map do |meter_hash|
+      return [] unless response['meters']
+      response['meters'].map do |meter_hash|
         base = meter_hash['base']
 
         {
@@ -43,8 +47,10 @@ module UtilityApi
     def get_bills(meter_uid)
       filtering_param = "&meters=#{meter_uid}"
       url = BASE_URL + '/bills' + auth_param + filtering_param
+      response = execute_api_request(url)
 
-      execute_api_request(url)['bills'].map do |bill_hash|
+      return [] unless response['bills']
+      response['bills'].map do |bill_hash|
         base_hash = bill_hash['base']
 
         {

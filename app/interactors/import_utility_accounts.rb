@@ -5,7 +5,7 @@ class ImportUtilityAccounts
     UtilityApi::Client.new.get_authorizations.each do |authorization_hash|
       next if authorization_hash[:is_invalid]
 
-      utility_account = UtilityAccount.find_or_create_by!(
+      utility_account = UtilityAccount.find_or_initialize_by(
         utility_data_provider_id: authorization_hash[:utility_data_provider_id],
         utility_data_provider_name: authorization_hash[:utility_data_provider_name]
       )

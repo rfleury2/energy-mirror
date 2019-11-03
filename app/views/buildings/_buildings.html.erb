@@ -1,0 +1,24 @@
+<table class="table table-borderless table-hover">
+  <thead>
+    <tr class='border-primary'>
+      <th class='table-heading-index px-0 border-bottom border-secondary'>Building Name</th>
+      <th class='table-heading-index px-0 border-bottom border-secondary'>Address</th>
+      <th class='table-heading-index px-0 border-bottom border-secondary'>Property Type</th>
+      <th class='table-heading-index px-0 border-bottom border-secondary'>Building Size (sqft)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% buildings.each do |building| %>
+      <tr class='table-row'>
+          <td class='table-cell-index px-0'>
+        <%= link_to building_path(building) do %>
+          <%= building.display_name %>
+        <% end %>
+          </td>
+          <td class='table-cell-index px-0'><%= building.address_line_1 %></td>
+          <td class='table-cell-index px-0'><%= building.primary_property_type %></td>
+          <td class='table-cell-index px-0'><%= building.gross_square_feet %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

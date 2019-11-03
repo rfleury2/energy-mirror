@@ -1,32 +1,16 @@
-<h1 class='main-title'>My buildings</h1>
+<div class='row'>
+  <div class='col'>
+    <h1 class='main-title'>My buildings</h1>
+  </div>
+  <div class='col text-right'>
+    <%= link_to 'Back to dashboard', root_path, class: 'btn btn-tertiary' %>
+  </div>
+</div>
 
 <div class="row mx-0">
   <div class="card w-100 mt-4 p-3 pb-1 shadow border-0">
     <div class="card-body pb-1">
-      <table class="table table-borderless table-hover">
-        <thead>
-          <tr class='border-primary'>
-            <th class='table-heading-index px-0 border-bottom border-secondary'>Building Name</th>
-            <th class='table-heading-index px-0 border-bottom border-secondary'>Address</th>
-            <th class='table-heading-index px-0 border-bottom border-secondary'>Property Type</th>
-            <th class='table-heading-index px-0 border-bottom border-secondary'>Building Size (sqft)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @buildings.each do |building| %>
-            <tr class='table-row'>
-                <td class='table-cell-index px-0'>
-              <%= link_to building_path(building) do %>
-                <%= building.display_name %>
-              <% end %>
-                </td>
-                <td class='table-cell-index px-0'><%= building.address_line_1 %></td>
-                <td class='table-cell-index px-0'><%= building.primary_property_type %></td>
-                <td class='table-cell-index px-0'><%= building.gross_square_feet %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+      <%= render partial: 'buildings', locals: { buildings: @buildings} %>
     </div>
   </div>
 </div>

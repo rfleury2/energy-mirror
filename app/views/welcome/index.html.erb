@@ -1,0 +1,30 @@
+<h1 class='main-title'><%= @organization.display_name %></h1>
+
+<div class="row mx-0">
+  <div class="card w-100 mt-4 p-3 pb-1 shadow border-0">
+    <div class="card-body pb-1">
+      <span>
+        <h4>
+          My buildings
+          <span class='float-right'><%= link_to 'See all', buildings_path %></span>
+        </h4>
+      </span>
+
+
+      </span>
+      <%= render partial: 'buildings/buildings', locals: { buildings: @buildings} %>
+    </div>
+  </div>
+</div>
+
+<div class="row mx-0">
+  <div class="card w-100 mt-4 p-3 pb-1 shadow border-0">
+    <div class="card-body pb-1">
+      <h4>
+        My utility accounts
+        <span class='float-right'><%= link_to 'See all', utility_accounts_path %></span>
+      </h4>
+      <%= render partial: 'utility_accounts/utility_accounts', locals: { utility_accounts: @utility_accounts} %>
+    </div>
+  </div>
+</div>

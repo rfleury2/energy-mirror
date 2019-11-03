@@ -1,5 +1,9 @@
 class WelcomeController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    redirect_to new_user_session_path unless signed_in?
+    @organization = current_user.organization
+    @buildings = Building.all
+    @utility_accounts = UtilityAccount.all
   end
 end

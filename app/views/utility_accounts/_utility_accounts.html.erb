@@ -1,0 +1,22 @@
+<table class="table table-borderless table-hover">
+  <thead>
+    <tr class='border-primary'>
+      <th class='table-heading-index px-0 border-bottom border-secondary'>Status</th>
+      <th class='table-heading-index px-0 border-bottom border-secondary'>Account Email</th>
+      <th class='table-heading-index px-0 border-bottom border-secondary'>Utility</th>
+      <th class='table-heading-index px-0 border-bottom border-secondary'>Service Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% utility_accounts.each do |utility_account| %>
+      <tr class='table-row'>
+        <td class='table-cell-index px-0 table-cell-pill' scope="row">
+          <span class="badge badge-pill pill p-3">Active</span>
+        </td>
+        <td class='table-cell-index px-0'><%= utility_account.customer_email %></td>
+        <td class='table-cell-index px-0'><%= utility_account.utility_name %></td>
+        <td class='table-cell-index px-0'><%= utility_account.display_resource_type %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

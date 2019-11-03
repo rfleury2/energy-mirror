@@ -1,4 +1,6 @@
 class BuildingsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @building = Building.new
     @manual = params[:manual]

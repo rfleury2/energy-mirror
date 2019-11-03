@@ -1,4 +1,5 @@
 def generate_dummy_bills_for(meter)
+  return unless meter.utility_bills.empty?
   consumption_unit = meter.utility_account.resource_type == 'electricity' ? 'kwh' : 'therms'
 
   13.times do |months_ago|
@@ -23,8 +24,19 @@ def generate_dummy_bills_for(meter)
       consumption_unit: consumption_unit
     )
   end
-
 end
+
+demo_organization = Organization.find_or_create_by!(
+  display_name: 'The Demo Real Estate Group'
+)
+
+demo_user = User.find_or_initialize_by(
+  email: 'demo@energymirror.com',
+  display_name: 'Demo User',
+  organization: demo_organization
+)
+demo_user.password = 'demodemo'
+demo_user.save!
 
 baronesa_building = Building.find_or_create_by!(
   display_name: 'The Banespa Building',
@@ -37,14 +49,16 @@ baronesa_building = Building.find_or_create_by!(
 )
 
 electricity_account = UtilityAccount.find_or_create_by!(
-  customer_email: 'slawrence@rivierarealestate.com',
+  customer_email: 'accounts_payable@demorealestategroup.com',
   utility_name: 'ConEd',
+  utility_data_provider_name: 'manual',
   resource_type: 'electricity'
 )
 
 gas_account = UtilityAccount.find_or_create_by!(
-  customer_email: 'slawrence@rivierarealestate.com',
+  customer_email: 'accounts_payable@demorealestategroup.com',
   utility_name: 'National Grid',
+  utility_data_provider_name: 'manual',
   resource_type: 'natural_gas'
 )
 
@@ -53,6 +67,16 @@ meter = UtilityMeter.find_or_create_by!(
   status: 'active',
   utility_data_provider_name: 'manual',
   meter_number: '57392-001',
+  service_address: '433 Baroness St., Chicago, IL 60647',
+  building: baronesa_building
+)
+generate_dummy_bills_for(meter)
+
+meter = UtilityMeter.find_or_create_by!(
+  utility_account: gas_account,
+  status: 'active',
+  utility_data_provider_name: 'manual',
+  meter_number: 'A301-5-122456',
   service_address: '433 Baroness St., Chicago, IL 60647',
   building: baronesa_building
 )
@@ -76,22 +100,6 @@ meter = UtilityMeter.find_or_create_by!(
 )
 generate_dummy_bills_for(meter)
 
-meter = UtilityMeter.find_or_create_by!(
-  utility_account: gas_account,
-  status: 'active',
-  utility_data_provider_name: 'manual',
-  meter_number: 'A301-5-122456',
-  service_address: '433 Baroness St., Chicago, IL 60647',
-  building: baronesa_building
-)
-generate_dummy_bills_for(meter)
-
-
-
-
-
-
-
 school_building = Building.find_or_create_by!(
   display_name: 'McKinley High School',
   primary_property_type: 'K-12 School',
@@ -103,26 +111,18 @@ school_building = Building.find_or_create_by!(
 )
 
 pge_electricity_account = UtilityAccount.find_or_create_by!(
-  customer_email: 'slawrence@rivierarealestate.com',
+  customer_email: 'accounts_payable@demorealestategroup.com',
   utility_name: 'PG&E',
+  utility_data_provider_name: 'manual',
   resource_type: 'electricity'
 )
 
 pge_gas_account = UtilityAccount.find_or_create_by!(
-  customer_email: 'slawrence@rivierarealestate.com',
+  customer_email: 'accounts_payable@demorealestategroup.com',
   utility_name: 'PG&E',
+  utility_data_provider_name: 'manual',
   resource_type: 'natural_gas'
 )
-
-meter = UtilityMeter.find_or_create_by!(
-  utility_account: pge_electricity_account,
-  status: 'active',
-  utility_data_provider_name: 'manual',
-  meter_number: '01231-001',
-  service_address: '8724 Route 34',
-  building: school_building
-)
-generate_dummy_bills_for(meter)
 
 meter = UtilityMeter.find_or_create_by!(
   utility_account: pge_electricity_account,
@@ -143,5 +143,4 @@ meter = UtilityMeter.find_or_create_by!(
   building: school_building
 )
 generate_dummy_bills_for(meter)
-
 

@@ -29,12 +29,12 @@
           <%= form_for @building do |f| %>
             <div class="form-group">
               <label class='form-label mb-0'>Building Name <span class='required-asterisk'>*</span></label>
-              <%= text_field_tag :display_name, @building.display_name, class: 'form-control' %>
+              <%= text_field_tag :display_name, @building.display_name, class: 'form-control', required: true %>
             </div>
 
             <div class="form-group mt-4">
               <label class='form-label mb-0'>Address Line 1 <span class='required-asterisk'>*</span></label>
-              <%= text_field_tag :address_line_1, @building.address_line_1, class: 'form-control' %>
+              <%= text_field_tag :address_line_1, @building.address_line_1, class: 'form-control', required: true %>
             </div>
 
             <div class="form-group mt-4">
@@ -45,12 +45,12 @@
             <div class="form-row">
               <div class="col form-group mt-4">
                 <label class='form-label mb-0'>City  <span class='required-asterisk'>*</span></label>
-                <%= text_field_tag :city, @building.city, class: 'form-control' %>
+                <%= text_field_tag :city, @building.city, class: 'form-control', required: true %>
               </div>
 
               <div class="col form-group mt-4">
                 <label class='form-label mb-0'>State <span class='required-asterisk'>*</span></label>
-                <%= select_tag :state, options_for_select([''] + Building::STATE_ABBREVIATIONS, @building.state), class: 'form-control' %>
+                <%= select_tag :state, options_for_select([''] + Building::STATE_ABBREVIATIONS, @building.state), class: 'form-control', required: true %>
               </div>
 
               <div class="col form-group mt-4">
@@ -61,12 +61,12 @@
 
             <div class="form-group mt-4">
               <label class='form-label mb-0'>Gross Square Feet <span class='required-asterisk'>*</span></label>
-              <%= number_field_tag :gross_square_feet, @building.gross_square_feet, class: 'form-control' %>
+              <%= number_field_tag :gross_square_feet, @building.gross_square_feet, class: 'form-control', required: true %>
             </div>
 
             <div class="form-group mt-4">
               <label class='form-label mb-0'>Building Type <span class='required-asterisk'>*</span></label>
-              <%= select_tag :primary_property_type, options_for_select([''] + Building::VALID_PROPERTY_TYPES, @building.primary_property_type), class: 'form-control' %>
+              <%= select_tag :primary_property_type, options_for_select([''] + Building::VALID_PROPERTY_TYPES, @building.primary_property_type), class: 'form-control', required: true %>
             </div>
 
             <div class='mt-5 w-100'>
