@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :building do
+    organization { build(:organization) }
     display_name { "#{Faker::Book.publisher} Building" }
     primary_property_type { 'Office' }
     gross_square_feet { 50000 }

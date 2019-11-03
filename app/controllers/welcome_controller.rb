@@ -3,7 +3,7 @@ class WelcomeController < ApplicationController
 
   def index
     @organization = current_user.organization
-    @buildings = Building.all
-    @utility_accounts = UtilityAccount.all
+    @buildings = @organization.buildings
+    @utility_accounts = @organization.utility_accounts
   end
 end

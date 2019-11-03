@@ -41,6 +41,7 @@ demo_user.save!
 baronesa_building = Building.find_or_create_by!(
   display_name: 'The Banespa Building',
   primary_property_type: 'Office',
+  organization: demo_organization,
   gross_square_feet: 122000,
   address_line_1: '433 Baroness St.',
   city: 'Chicago',
@@ -49,6 +50,7 @@ baronesa_building = Building.find_or_create_by!(
 )
 
 electricity_account = UtilityAccount.find_or_create_by!(
+  organization: demo_organization,
   customer_email: 'accounts_payable@demorealestategroup.com',
   utility_name: 'ConEd',
   utility_data_provider_name: 'manual',
@@ -56,6 +58,7 @@ electricity_account = UtilityAccount.find_or_create_by!(
 )
 
 gas_account = UtilityAccount.find_or_create_by!(
+  organization: demo_organization,
   customer_email: 'accounts_payable@demorealestategroup.com',
   utility_name: 'National Grid',
   utility_data_provider_name: 'manual',
@@ -103,6 +106,7 @@ generate_dummy_bills_for(meter)
 school_building = Building.find_or_create_by!(
   display_name: 'McKinley High School',
   primary_property_type: 'K-12 School',
+  organization: demo_organization,
   gross_square_feet: 42000,
   address_line_1: '8724 Route 34',
   city: 'Santa Barbara',
@@ -111,6 +115,7 @@ school_building = Building.find_or_create_by!(
 )
 
 pge_electricity_account = UtilityAccount.find_or_create_by!(
+  organization: demo_organization,
   customer_email: 'accounts_payable@demorealestategroup.com',
   utility_name: 'PG&E',
   utility_data_provider_name: 'manual',
@@ -118,6 +123,7 @@ pge_electricity_account = UtilityAccount.find_or_create_by!(
 )
 
 pge_gas_account = UtilityAccount.find_or_create_by!(
+  organization: demo_organization,
   customer_email: 'accounts_payable@demorealestategroup.com',
   utility_name: 'PG&E',
   utility_data_provider_name: 'manual',

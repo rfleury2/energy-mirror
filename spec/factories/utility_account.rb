@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :utility_account do
+    organization { build(:organization) }
     utility_name { 'ConEd' }
     resource_type { 'electricity' }
     customer_email { Faker::Internet.email }

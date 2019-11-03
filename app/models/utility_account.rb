@@ -1,5 +1,6 @@
 class UtilityAccount < ApplicationRecord
   has_many :utility_meters
+  belongs_to :organization
 
   VALID_RESOURCE_TYPES = %w(
     electricity

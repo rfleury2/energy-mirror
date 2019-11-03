@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_03_160907) do
+ActiveRecord::Schema.define(version: 2019_11_03_180519) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2019_11_03_160907) do
     t.json "energy_star_attributes", default: {}
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "organization_id"
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -57,6 +58,7 @@ ActiveRecord::Schema.define(version: 2019_11_03_160907) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "utility_data_provider_name", default: "utility_api"
     t.string "utility_data_provider_id"
+    t.integer "organization_id"
   end
 
   create_table "utility_bills", force: :cascade do |t|

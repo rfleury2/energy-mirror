@@ -11,6 +11,7 @@ class ImportUtilityAccounts
       )
 
       utility_account.update(
+        organization: Organization.first,
         customer_email: authorization_hash[:customer_email],
         utility_name: authorization_hash[:utility_name],
         resource_type: authorization_hash[:resource_type]
