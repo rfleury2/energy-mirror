@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     get 'chart_data'
   end
   resources :utility_accounts, only: [:index, :new]
+  resources :organizations, only: [:update]
+
+  get :profile, to: 'welcome#profile'
+  put :profile, to: 'welcome#update'
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   mount Sidekiq::Web => '/sidekiq'

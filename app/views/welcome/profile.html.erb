@@ -1,0 +1,83 @@
+<div class='row'>
+  <div class='col'>
+    <h1 class='main-title'>Profile</h1>
+  </div>
+  <div class='col text-right'>
+    <%= link_to 'Back to dashboard', root_path, class: 'btn btn-tertiary' %>
+  </div>
+</div>
+
+<% if @errors %>
+  <%= render partial: 'shared/error_alert', locals: { errors: @errors } %>
+<% elsif @success %>
+  <div class="alert alert-success" role="alert">
+    <div class='mb-1'>Your profile changes were saved!</div>
+  </div>
+<% elsif @organization_errors %>
+  <%= render partial: 'shared/error_alert', locals: { errors: @organization_errors } %>
+<% elsif @organization_success %>
+  <div class="alert alert-success" role="alert">
+    <div class='mb-1'>Your organization's changes were saved!</div>
+  </div>
+<% end %>
+
+
+<div class="row mx-0">
+  <div class="card col-xl-8 col-lg-12 mt-5 shadow border-0">
+    <div class="card-body">
+      <div class='row mb-4'>
+        <div class='col'>
+          <h4 class='main-title'>Account details</h4>
+        </div>
+      </div>
+
+      <div class='row w-100 m-0'>
+        <%= form_for @user, url: profile_path, method: :put do |f| %>
+          <div class="form-group">
+            <label class='form-label mb-0'>Name</label>
+            <%= text_field_tag :display_name, @user.display_name, class: 'form-control', required: true %>
+          </div>
+
+          <div class="form-group">
+            <label class='form-label mb-0'>Email</label>
+            <%= text_field_tag :email, @user.email, class: 'form-control', required: true %>
+          </div>
+
+          <div class="form-group">
+            <label class='form-label mb-0'>Role</label>
+            <%= text_field_tag :role, "Organization Admin", class: 'form-control', disabled: true %>
+          </div>
+
+          <div class='mt-5 w-100'>
+            <%= f.submit 'Update profile', class: 'btn btn-primary btn-lg float-right' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mx-0">
+  <div class="card col-xl-8 col-lg-12 mt-5 shadow border-0">
+    <div class="card-body">
+      <div class='row mb-4'>
+        <div class='col'>
+          <h4 class='main-title'>Manage organization</h4>
+        </div>
+      </div>
+
+      <div class='row w-100 m-0'>
+        <%= form_for @organization, method: :put do |f| %>
+          <div class="form-group">
+            <label class='form-label mb-0'>Name</label>
+            <%= text_field_tag :display_name, @organization.display_name, class: 'form-control', required: true %>
+          </div>
+
+          <div class='mt-5 w-100'>
+            <%= f.submit 'Update organization', class: 'btn btn-primary btn-lg float-right' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

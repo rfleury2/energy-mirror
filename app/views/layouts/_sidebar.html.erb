@@ -37,10 +37,10 @@
         <%= image_tag 'reporting_icon.svg', class: 'sidebar-icon mr-2' %>
         Reporting
       </a>
-      <a href="#" class="list-group-item list-group-item-action">
+      <%= link_to profile_path, class: "list-group-item list-group-item-action" do %>
         <%= image_tag 'user_icon.svg', class: 'sidebar-icon mr-2' %>
         Profile
-      </a>
+      <% end %>
 
 
       <div class='session-links'>
