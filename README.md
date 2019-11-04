@@ -3,22 +3,20 @@
 EnergyMirror is a web application designed to help property managers, building owners and other commercial real estate stakeholders understand and manage their buildings' energy consumption, utility billing, and regulatory compliance.  The application is a work in progress and is far from completed.
 
 Upon signing up, a user gets set up in three easy steps:
-1 - User grants EnergyMirror access to their utility accounts (UtilityAPI integration)
-2 - User creates their building(s) in EnergyMirror
-3 - User sets up the links between their buildings and the correct energy meters
+1. User grants EnergyMirror access to their utility accounts (UtilityAPI integration)
+2. User creates their building(s) in EnergyMirror
+3. User sets up the links between their buildings and the correct energy meters
 
-Once the user completes these initial steps, EnergyMirror collects historical bill information and subscribes to any future bills.  The user can see a dashboard of any building's energy consumption
+Once the user completes these initial steps, EnergyMirror collects historical bill information and subscribes to any future bills.  The user can see a dashboard of any building's energy consumption and cost.
 
-[DASHBOARD HERE]
+![Building dashboard](./app/assets/images/dashboard_screenshot.png)
 
 There are many more features that would turn this side project into a real business.  I have highlighted some of them below - I plan on chipping away at these features in the next few weeks.
 
 ## Try out a demo
-
-[LINK GOES HERE]
-
-Email: demo@energymirror.com
-Password: demouser1!
+[Try out EnergyMirror demo](https://energy-mirror.herokuapp.com/) by logging in as:
+- Email: demo@energymirror.com
+- Password: demouser1!
 
 ## Why is this out in the open?
 
@@ -54,6 +52,7 @@ Below is a list of gems used.  One of the earliest goals when building this appl
 #### UI
 - Bootstrap
 - Stimulus
+- React
 
 #### Testing
 - RSpec
